@@ -80,17 +80,18 @@ export default {
 }
 
 .file-item__name {
-  font-size: var(--font-size--medium);
+  font-size: responsive 0.85rem 1.75rem;
+  font-range: 420px 1280px;
   font-weight: var(--font-weight--bold);
   grid-area: name;
 
-  @media (--viewport--medium) {
+  /*  @media (--viewport--medium) {
     font-size: var(--font-size--xLarge);
   }
 
   @media (--viewport--large) {
     font-size: var(--font-size--xLarge);
-  }
+  }*/
 }
 
 .file-item__status {

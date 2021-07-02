@@ -18,31 +18,14 @@
 <script>
 import FileItem from "./FileItem";
 
-const MOCK = [
-  {
-    fileName: "some-file-name-1.psd",
-    fileType: "PSD",
-    uploadStatus: 100,
-  },
-  {
-    fileName: "im-a-very-long-file-name-2.pdf",
-    fileType: "PDF",
-    uploadStatus: 60,
-  },
-  {
-    fileName: "another-file-name-3.pdf",
-    fileType: "PNG",
-    uploadStatus: 40,
-  },
-];
-
 export default {
   name: "FileList",
 
-  data() {
-    return {
-      files: MOCK,
-    };
+  props: {
+    files: {
+      type: Array,
+      default: () => [],
+    },
   },
 
   components: {
@@ -64,15 +47,11 @@ export default {
 
 <style scoped>
 .file-list {
-  /* BLOCK */
+  padding-left: 0;
 }
 
 .file-list__item {
-  margin-bottom: var(--space--medium);
-
-  @media (--viewport--medium-up) {
-    margin-bottom: var(--space--large);
-  }
+  margin-bottom: var(--space--large);
 }
 
 .list-enter-active,

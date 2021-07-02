@@ -1,8 +1,8 @@
 <template>
   <section class="card">
     <h1 class="card__header">Upload File</h1>
-    <file-list class="card__file-list" />
-    <file-uploader class="card__file-uploader" />
+    <file-list :files="files" class="card__file-list" />
+    <file-uploader class="card__file-uploader" @upload="handleFileAdd" />
   </section>
 </template>
 
@@ -14,6 +14,26 @@ export default {
   components: {
     FileList,
     FileUploader,
+  },
+
+  data() {
+    return {
+      files: [],
+    };
+  },
+
+  methods: {
+    handleFileAdd(file) {
+      debugger;
+
+      if (!file) return; // print an error
+      this.files.push({
+        fileName: file.name,
+        fileType: file.type,
+        filesize: file.size,
+        uploadStatus: 100,
+      });
+    },
   },
 };
 </script>
@@ -27,6 +47,8 @@ export default {
 }
 
 .card__header {
+  font-size: responsive 1.5rem 2.25rem;
+  font-range: 420px 1280px;
   text-align: center;
   text-transform: uppercase;
   margin-bottom: var(--space--xLarge);
