@@ -1,0 +1,111 @@
+:root {
+    /**
+   * Breakpoints
+   */
+    --breakpoint--small: 320px;
+    --breakpoint--medium: 768px;
+    --breakpoint--large: 1200px;
+
+    /**
+    * Colors
+    */
+    --color--grey900: #111;
+    --color--grey800: #222;
+    --color--grey700: #333;
+    --color--grey600: #444;
+    --color--grey500: #555;
+    --color--grey400: #666;
+    --color--grey300: #777;
+    --color--grey200: #888;
+    --color--grey100: #f5f5f5;
+    --color--grey50: #fafafa;
+
+    /* Green */
+
+    --color--green700: #4db45d;
+    --color--green500: #3eb049;
+    --color--green300: #70c67e;
+
+    /* Red */
+    --color--red700: #d81921;
+    --color--red500: #d71921;
+    --color--red300: #f24f4f;
+
+    /* Blue */
+    --color--blue500: #6a8ef1;
+
+    /* base colors */
+    --color--white: #fff;
+    --color--black: #0f0f0f;
+
+    /* other */
+    --color--error: var(--color--red500);
+    --color--info: var(--color--blue500);
+    --color--success: var(--color--green500);
+
+    /* Base */
+    --text-color: var(--color--black);
+    --background-color: var(--color--white);
+    --link-color: var(--color--blue500);
+    --link-color--onHover: var(--color--red500);
+
+    /**
+    * Fonts
+    */
+    --font-size: 16px;
+    --font-family: 'CenturyGothic', -apple-system, blinkmacsystemfont, 'Segoe UI',
+    'Helvetica Neue', arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+
+    /**
+    * Line height
+   */
+    --line-height: 1.4;
+
+    /**
+   * Font Size Based on Major Second https://type-scale.com/  Base 18px
+   */
+    --font-size--xxxLarge: 2.441rem; /* 39.06px */
+    --font-size--xxLarge: 1.953rem; /* 31.25px */
+    --font-size--xLarge: 1.563rem; /* 25.00px */
+    --font-size--large: 1.25rem; /* 20.00px */
+    --font-size--medium: 1rem; /* 16.00px */
+    --font-size--small: 0.8rem; /* 12.80px */
+    --font-size--xSmall: 0.64rem; /* 10.24px */
+    --font-size--xxSmall: 0.512rem; /* 8.19px */
+
+    /**
+   * Font Weight
+   */
+    --font-weight--lighter: 200;
+    --font-weight--light: 300;
+    --font-weight--normal: 400;
+    --font-weight--medium: 500;
+    --font-weight--bold: 700;
+
+    /**
+   * Spacing
+   */
+    --space--xSmall: 0.25rem; /* 4px */
+    --space--small: 0.5rem; /* 8px */
+    --space--medium: 1rem; /* 16px */
+    --space--large: 1.5rem; /* 24px */
+    --space--xLarge: 2.25rem; /* 36px */
+    --space--xxLarge: 4rem; /* 48px  */
+
+    /**
+   * Z index
+   */
+    --z-index--low: 100;
+    --z-index--medium: 200;
+    --z-index--high: 300;
+}
+
+@custom-media --viewport--small (min-width: 320px) and (max-width: 767px);
+@custom-media --viewport--small-up (min-width: 320px);
+@custom-media --viewport--medium (min-width: 768px) and (max-width: 1199px);
+@custom-media --viewport--medium-up (min-width: 768px);
+@custom-media --viewport--large (min-width: 1200px) and (max-width: 1919px);
+@custom-media --viewport--large-up (min-width: 1200px);
+
+

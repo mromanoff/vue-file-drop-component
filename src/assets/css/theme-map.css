@@ -1,0 +1,67 @@
+:root {
+    /**
+    * Container
+    */
+    --main--width: 900px;
+    --aside--width: 300px;
+
+    /**
+     * Icons
+     */
+    --icon-size--xxlarge: 86px;
+    --icon-size--xlarge: 48px;
+    --icon-size--large: 40px;
+    --icon-size--medium: 32px;
+    --icon-size--small: 24px;
+    --icon-size--xsmall: 16px;
+    --icon-size--xxsmall: 12px;
+
+    /**
+    * Buttons
+     */
+    --button-bordercolor: var(--color--black);
+    --button-borderwidth: 1px;
+    --button-borderradius: 0;
+    --button-letterspacing: 0.0892857143em;
+    --button-color: var(--color--black);
+    --button--disabled-opacity: 0.4;
+
+    /* Default button */
+    --button--default-bordercolor: var(--color--grey600);
+    --button--default-borderwidth: 1px;
+    --button--default-color: var(--text-color);
+    --button--default-backgroundcolor: transparent;
+    --button--default-color-hover: var(--color--white);
+    --button--default-backgroundcolor-hover: var(--color--grey200);
+    --button--default-backgroundcolor-active: var(--color--grey300);
+
+    /* Primary button */
+    --button--primary-bordercolor: var(--color--red500);
+    --button--primary-borderwidth: 1px;
+    --button--primary-color: var(--color--white);
+    --button--primary-backgroundcolor: var(--color--red500);
+    --button--primary-backgroundcolor-hover: var(--color--red300);
+    --button--primary-backgroundcolor-active: var(--color--red700);
+
+    /* Secondary button */
+    --button--secondary-bordercolor: var(--color--grey600);
+    --button--secondary-borderwidth: 1px;
+    --button--secondary-color: var(--color--white);
+    --button--secondary-backgroundcolor: var(--color--grey700);
+    --button--secondary-backgroundcolor-hover: var(--color--grey600);
+    --button--secondary-backgroundcolor-active: var(--color--grey700);
+
+    /* Tertiary button */
+    --button--tertiary-bordercolor: var(--color--green500);
+    --button--tertiary-borderwidth: 1px;
+    --button--tertiary-color: var(--color--white);
+    --button--tertiary-backgroundcolor: var(--color--green500);
+    --button--tertiary-backgroundcolor-hover: var(--color--green300);
+    --button--tertiary-backgroundcolor-active: var(--color--green700);
+
+    /* Text button */
+    --button--text-bordercolor: transparent;
+    --button--text-borderwidth: 1px;
+    --button--text-color: var(--text-color);
+    --button--text-backgroundcolor: transparent;
+}
