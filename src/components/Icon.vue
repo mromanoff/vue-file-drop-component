@@ -69,9 +69,7 @@ export default {
       type: String,
       default: "default",
       validator: (value) => {
-        return value.match(
-          /(default|black|white|lightGrey|grey|darkGrey|red|green)/
-        );
+        return value.match(/(default|black|white|grey|red|green)/);
       },
     },
     /**
@@ -157,16 +155,8 @@ export default {
   fill: currentColor;
 }
 
-.icon--lightGrey {
-  fill: var(--color--grey300);
-}
-
 .icon--grey {
   fill: var(--color--grey500);
-}
-
-.icon--darkGrey {
-  fill: var(--color--grey700);
 }
 
 .icon--black {

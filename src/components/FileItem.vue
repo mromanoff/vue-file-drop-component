@@ -3,7 +3,8 @@
     <icon class="file-item__icon" size="xxLarge" name="file-doc" />
     <div class="file-item__name">some-file-name-1.psd</div>
     <div class="file-item__status">
-      <icon size="medium" name="check" />
+      <icon v-if="completed" size="medium" name="check" color="green" />
+      <icon v-else size="medium" name="close" color="red" />
     </div>
     <progress-bar class="file-item__progress" size="xSmall" :value="50" />
   </div>
@@ -17,6 +18,13 @@ export default {
   components: {
     Icon,
     ProgressBar,
+  },
+
+  props: {
+    completed: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -36,12 +44,24 @@ export default {
 
 .file-item__icon {
   grid-area: icon;
+  width: 48px;
+  @media (--viewport--medium-up) {
+    width: initial;
+  }
 }
 
 .file-item__name {
-  font-size: var(--font-size--xLarge);
+  font-size: var(--font-size--small);
   font-weight: var(--font-weight--bold);
   grid-area: name;
+
+  @media (--viewport--medium) {
+    font-size: var(--font-size--large);
+  }
+
+  @media (--viewport--large) {
+    font-size: var(--font-size--xLarge);
+  }
 }
 
 .file-item__status {

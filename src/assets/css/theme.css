@@ -33,6 +33,7 @@
 
     /* Blue */
     --color--blue500: #6a8ef1;
+    --color--blue300: #82a1ea;
 
     /* base colors */
     --color--white: #fff;
@@ -47,7 +48,7 @@
     --text-color: #3d4b52;
     --background-color: var(--color--white);
     --link-color: var(--color--blue500);
-    --link-color--onHover: var(--color--red500);
+    --link-color--onHover: var(--color--blue300);
 
     /**
     * Fonts

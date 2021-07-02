@@ -15,8 +15,25 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .app {
-  margin: 0 auto;
+  margin-top: calc(var(--space--medium) * 3);
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--space--medium);
+}
+
+@media (--viewport--medium) {
+  .app {
+    width: var(--breakpoint--medium);
+  }
+}
+
+@media (--viewport--medium-up) {
+  .app {
+    width: var(--breakpoint--medium);
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

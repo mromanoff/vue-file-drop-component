@@ -20,7 +20,6 @@ export default {
 
 <style scoped>
 .card {
-  width: 50rem;
   min-height: 10rem;
   background-color: var(--color--white);
   border-radius: var(--space--xLarge);

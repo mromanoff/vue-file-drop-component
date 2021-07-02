@@ -43,7 +43,7 @@
 
 html {
     color: var(--text-color);
-    background-color: var(--background-color);
+    background-color: var(--color--blue500);
     font-family: var(--font-family);
     font-weight: 400;
     min-font-size: 12px;
@@ -62,16 +62,10 @@ html {
     read this: https://www.smashingmagazine.com/2018/08/scroll-bouncing-websites/
 */
 body {
-    min-width: var(--breakpoint--small);
     margin: 0;
-    width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     background-color: var(--color--blue500);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 address {
@@ -101,7 +95,7 @@ h1,
 h2,
 h3 {
     margin: 0 0 0.5em;
-    font-family: var(--font-family--header);
+    font-family: var(--font-family);
     line-height: var(--line-height);
     letter-spacing: 1px;
 }
