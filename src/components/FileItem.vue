@@ -1,13 +1,28 @@
 <template>
-  <div class="file-item">
+  <li class="file-item">
     <icon class="file-item__icon" size="xxLarge" name="file-doc" />
-    <div class="file-item__name">some-file-name-1.psd</div>
+    <div class="file-item__name">{{ fileName }}</div>
     <div class="file-item__status">
-      <icon v-if="completed" size="medium" name="check" color="green" />
-      <icon v-else size="medium" name="close" color="red" />
+      <icon
+        v-if="uploadStatus === 100"
+        size="medium"
+        name="check"
+        color="green"
+      />
+      <button
+        v-else
+        class="file-item__cancel"
+        @click="$emit('cancel', fileName)"
+      >
+        <icon size="medium" name="close" color="red" />
+      </button>
     </div>
-    <progress-bar class="file-item__progress" size="xSmall" :value="50" />
-  </div>
+    <progress-bar
+      class="file-item__progress"
+      size="xSmall"
+      :value="uploadStatus"
+    />
+  </li>
 </template>
 
 <script>
@@ -25,16 +40,31 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    fileName: {
+      type: String,
+      required: true,
+    },
+
+    fileType: {
+      type: String,
+      default: "UNKNOWN",
+    },
+
+    uploadStatus: {
+      type: Number,
+      default: 0,
+    },
   },
 };
 </script>
 
 <style scoped>
 .file-item {
-  height: calc(var(--space--medium) * 5);
+  /*  height: calc(var(--space--medium) * 5);*/
   display: grid;
   grid-template-columns: max-content 1fr max-content;
-  grid-template-rows: max-content max-content;
+  grid-template-rows: 1fr max-content;
   grid-template-areas:
     "icon name status"
     "icon progress progress";
@@ -44,19 +74,18 @@ export default {
 
 .file-item__icon {
   grid-area: icon;
-  width: 48px;
   @media (--viewport--medium-up) {
     width: initial;
   }
 }
 
 .file-item__name {
-  font-size: var(--font-size--small);
+  font-size: var(--font-size--medium);
   font-weight: var(--font-weight--bold);
   grid-area: name;
 
   @media (--viewport--medium) {
-    font-size: var(--font-size--large);
+    font-size: var(--font-size--xLarge);
   }
 
   @media (--viewport--large) {
@@ -69,6 +98,7 @@ export default {
 }
 
 .file-item__progress {
+  margin-top: var(--space--medium);
   grid-area: progress;
 }
 </style>
