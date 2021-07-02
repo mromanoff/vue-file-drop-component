@@ -22,14 +22,14 @@
 
     /* Green */
 
-    --color--green700: #4db45d;
-    --color--green500: #3eb049;
-    --color--green300: #70c67e;
+/*    --color--green700: #4db45d;*/
+    --color--green500: #6cc98a;
+/*    --color--green300: #70c67e;*/
 
     /* Red */
-    --color--red700: #d81921;
-    --color--red500: #d71921;
-    --color--red300: #f24f4f;
+/*    --color--red700: #d81921;*/
+    --color--red500: #ed665f;
+/*    --color--red300: #f24f4f;*/
 
     /* Blue */
     --color--blue500: #6a8ef1;
@@ -44,7 +44,7 @@
     --color--success: var(--color--green500);
 
     /* Base */
-    --text-color: var(--color--black);
+    --text-color: #3d4b52;
     --background-color: var(--color--white);
     --link-color: var(--color--blue500);
     --link-color--onHover: var(--color--red500);
@@ -53,9 +53,11 @@
     * Fonts
     */
     --font-size: 16px;
-    --font-family: 'CenturyGothic', -apple-system, blinkmacsystemfont, 'Segoe UI',
-    'Helvetica Neue', arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
+    /*--font-family: 'CenturyGothic', -apple-system, blinkmacsystemfont, 'Segoe UI',*/
+    /*'Helvetica Neue', arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',*/
+    /*'Segoe UI Symbol';*/
+
+    --font-family: 'Montserrat', sans-serif;
 
     /**
     * Line height

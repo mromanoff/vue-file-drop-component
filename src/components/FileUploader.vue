@@ -26,9 +26,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 6px dashed rgba(106, 142, 251, 0.25);
+  border: 5px dashed #d1ddf8;
   border-radius: calc(var(--space--medium) * 2);
-  height: calc(var(--space--medium) * 20);
+  min-height: calc(var(--space--medium) * 20);
   text-align: center;
 }
 
