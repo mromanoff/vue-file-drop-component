@@ -7,8 +7,9 @@
   >
     <input
       type="file"
+      multiple
       class="file-uploader__input"
-      name="file"
+      name="fields[file-input][]"
       id="file-input"
       @change="handleChange"
       ref="file"
@@ -28,17 +29,6 @@ import { ALLOWED_FILES } from "@/constants";
 export default {
   name: "FileUploader",
 
-  props: {
-    value: {
-      type: Object,
-      default: null,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-  },
-
   data() {
     return {
       fileList: [],
@@ -56,7 +46,7 @@ export default {
      * Handle Change
      */
     handleChange() {
-      this.$emit("upload", this.$refs.file.files[0]);
+      this.$emit("upload", this.$refs.file.files);
     },
 
     /***

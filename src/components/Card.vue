@@ -51,21 +51,24 @@ export default {
   methods: {
     /**
      * Handle Upload
-     * @param file
+     * @param files
      */
-    handleUpload(file) {
+    handleUpload(files) {
       this.error = null; // reset error
 
-      if (!file) {
-        this.error = "Not supported file";
-      } else if (!this.allowedMimeFiles.includes(file.type.toLowerCase())) {
-        this.error = `This file type ${file.type} is not allowed to upload`;
-      } else {
-        const { name, type, size } = file;
-        this.files.push({ name, type, size });
-        // clean up
-        this.clearFileInput();
-      }
+      files.forEach((file) => {
+        if (!files) {
+          this.error = "Not supported file";
+        } else if (!this.allowedMimeFiles.includes(file.type.toLowerCase())) {
+          this.error = `This file type ${file.type} is not allowed to upload`;
+        } else {
+          const { name, type, size } = file;
+          this.files.push({ name, type, size });
+        }
+      });
+
+      // clean up
+      this.clearFileInput();
     },
 
     /***
