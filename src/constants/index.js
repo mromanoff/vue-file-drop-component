@@ -1,17 +1,6 @@
 // LIST Common MIME types
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
 
-export const ALLOWED_FILE_EXTENSIONS = [
-  ".ai",
-  ".pdf",
-  ".jpg",
-  ".jpeg",
-  ".png",
-  ".doc",
-  ".psd",
-  ".xls",
-];
-
 export const ALLOWED_FILES = {
   ai: "application/postscript",
   pdf: "application/pdf",

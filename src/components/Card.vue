@@ -3,18 +3,20 @@
     <h1 class="card__header">Upload File</h1>
     <file-list :files="files" class="card__file-list" />
 
-    <div v-if="error" class="card__error">
-      <h4>{{ error }}</h4>
-      <h5>Only these are permitted:</h5>
-      <ul style="margin-bottom: 0; font-size: var(--font-size--small)">
-        <li v-for="(item, index) of allowedMimeFiles" :key="index">
-          {{ item }}
-        </li>
-      </ul>
-      <button @click="error = null">
-        <icon class="card__close-error" name="close" />
-      </button>
-    </div>
+    <transition name="fade">
+      <div v-if="error" class="card__error">
+        <h4>{{ error }}</h4>
+        <h5>Only these are permitted:</h5>
+        <ul style="margin-bottom: 0; font-size: var(--font-size--small)">
+          <li v-for="(item, index) of allowedMimeFiles" :key="index">
+            {{ item }}
+          </li>
+        </ul>
+        <button @click="error = null">
+          <icon class="card__close-error" name="close" />
+        </button>
+      </div>
+    </transition>
 
     <file-uploader class="card__file-uploader" @upload="handleUpload" />
   </section>

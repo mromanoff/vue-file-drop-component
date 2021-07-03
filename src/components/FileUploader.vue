@@ -55,26 +55,26 @@ export default {
     handleChange() {
       this.$emit("upload", this.$refs.file.files[0]);
     },
+
     dragover(event) {
       event.preventDefault();
       // Add some visual fluff to show the user can drop its files
-      if (!event.currentTarget.classList.contains("bg-green-300")) {
-        event.currentTarget.classList.remove("bg-gray-100");
-        event.currentTarget.classList.add("bg-green-300");
+      if (!event.currentTarget.classList.contains("file-uploader--dragover")) {
+        event.currentTarget.classList.add("file-uploader--dragover");
       }
     },
+
     dragleave(event) {
       // Clean up
-      event.currentTarget.classList.add("bg-gray-100");
-      event.currentTarget.classList.remove("bg-green-300");
+      event.currentTarget.classList.remove("file-uploader--dragover");
     },
+
     drop(event) {
       event.preventDefault();
       this.$refs.file.files = event.dataTransfer.files;
       this.handleChange(); // Trigger the handleChange event manually
       // Clean up
-      event.currentTarget.classList.add("bg-gray-100");
-      event.currentTarget.classList.remove("bg-green-300");
+      event.currentTarget.classList.remove("file-uploader--dragover");
     },
   },
 };
@@ -114,5 +114,13 @@ export default {
 .file-uploader__button:hover {
   color: var(--link-color--onHover);
   text-decoration: underline;
+}
+
+.file-uploader--gray {
+  background-color: #3d4b52;
+}
+
+.file-uploader--dragover {
+  background-color: var(--color--green50);
 }
 </style>
