@@ -1,5 +1,8 @@
 # file-drop-component
 
+
+![](./src/assets/ui-challenge-february.jpg)
+
 ## Project setup
 ```
 yarn install
