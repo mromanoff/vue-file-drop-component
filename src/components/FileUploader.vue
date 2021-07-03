@@ -18,7 +18,7 @@
     <div class="file-uploader__title">
       Drag file here <br />
       or
-      <label for="file-input" class="file-uploader__button"> browse </label>
+      <label for="file-input" class="file-uploader__button">browse</label>
     </div>
   </div>
 </template>
@@ -114,10 +114,6 @@ export default {
 .file-uploader__button:hover {
   color: var(--link-color--onHover);
   text-decoration: underline;
-}
-
-.file-uploader--gray {
-  background-color: #3d4b52;
 }
 
 .file-uploader--dragover {

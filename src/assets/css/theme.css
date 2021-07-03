@@ -28,9 +28,7 @@
     --color--green50: #e0ffe5;
 
     /* Red */
-/*    --color--red700: #d81921;*/
     --color--red500: #ed665f;
-/*    --color--red300: #f24f4f;*/
 
     /* Blue */
     --color--blue500: #6a8ef1;
@@ -55,10 +53,6 @@
     * Fonts
     */
     --font-size: 16px;
-    /*--font-family: 'CenturyGothic', -apple-system, blinkmacsystemfont, 'Segoe UI',*/
-    /*'Helvetica Neue', arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',*/
-    /*'Segoe UI Symbol';*/
-
     --font-family: 'Montserrat', sans-serif;
 
     /**
