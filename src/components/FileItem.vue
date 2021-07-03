@@ -1,6 +1,12 @@
 <template>
   <li class="file-item">
-    <file-icon class="file-item__icon" size="xxLarge" :name="fileIconName" />
+    <file-icon
+      class="file-item__icon"
+      size="xxLarge"
+      :name="fileIconName"
+      :style="{ opacity: uploadCount / 100 }"
+    />
+
     <div class="file-item__name">{{ name }}</div>
     <div class="file-item__status">
       <transition name="fade-zoom" mode="out-in">

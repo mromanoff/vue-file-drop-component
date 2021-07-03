@@ -1,14 +1,14 @@
 <template>
-  <section class="card">
-    <h1 class="card__header">Upload File</h1>
+  <section class="upload-file">
+    <h1 class="upload-file__header">Upload File</h1>
     <file-list
       :files="files"
-      class="card__file-list"
+      class="upload-file__file-list"
       @cancel="handleCancelUpload"
     />
 
     <transition name="fade">
-      <div v-if="error" class="card__error">
+      <div v-if="error" class="upload-file__error">
         <h4>{{ error }}</h4>
         <h5>Only these are permitted:</h5>
         <ul style="margin-bottom: 0; font-size: var(--font-size--small)">
@@ -17,23 +17,23 @@
           </li>
         </ul>
         <button @click="error = null">
-          <icon class="card__close-error" name="close" />
+          <icon class="upload-file__close-error" name="close" />
         </button>
       </div>
     </transition>
 
-    <file-uploader class="card__file-uploader" @upload="handleUpload" />
+    <file-uploader class="upload-file__file-uploader" @upload="handleUpload" />
   </section>
 </template>
 
 <script>
 import FileList from "./FileList";
-import FileUploader from "./FileUploader";
+import FileUploader from "./FileDrop";
 import Icon from "./Icon";
 import { ALLOWED_FILES } from "@/constants";
 
 export default {
-  name: "Card",
+  name: "UploadFile",
   components: {
     FileList,
     FileUploader,
@@ -92,14 +92,14 @@ export default {
 </script>
 
 <style scoped>
-.card {
+.upload-file {
   min-height: 10rem;
   background-color: var(--color--white);
   border-radius: var(--space--xLarge);
   padding: var(--space--xLarge);
 }
 
-.card__header {
+.upload-file__header {
   font-size: responsive 1.5rem 2.25rem;
   font-range: 420px 1280px;
   text-align: center;
@@ -107,11 +107,11 @@ export default {
   margin-bottom: var(--space--xLarge);
 }
 
-.card__file-list {
+.upload-file__file-list {
   margin-bottom: var(--space--xLarge);
 }
 
-.card__error {
+.upload-file__error {
   position: relative;
   color: var(--color--white);
   background-color: var(--color--red500);
@@ -120,7 +120,7 @@ export default {
   border-radius: 6px;
 }
 
-.card__close-error {
+.upload-file__close-error {
   cursor: pointer;
   position: absolute;
   right: var(--space--xSmall);

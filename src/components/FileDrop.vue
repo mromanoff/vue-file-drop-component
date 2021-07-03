@@ -1,6 +1,6 @@
 <template>
   <div
-    class="file-uploader"
+    class="file-drop"
     @dragover="dragover"
     @dragleave="dragleave"
     @drop="drop"
@@ -8,7 +8,7 @@
     <input
       type="file"
       multiple
-      class="file-uploader__input"
+      class="file-drop__input"
       name="fields[file-input][]"
       id="file-input"
       @change="handleChange"
@@ -16,10 +16,10 @@
       :accept="allowedFileExtensions"
     />
 
-    <div class="file-uploader__title">
+    <div class="file-drop__title">
       Drag file here <br />
       or
-      <label for="file-input" class="file-uploader__button">browse</label>
+      <label for="file-input" class="file-drop__button">browse</label>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@
 <script>
 import { ALLOWED_FILES } from "@/constants";
 export default {
-  name: "FileUploader",
+  name: "FileDrop",
 
   data() {
     return {
@@ -55,8 +55,8 @@ export default {
      */
     dragover(event) {
       event.preventDefault();
-      if (!event.currentTarget.classList.contains("file-uploader--dragover")) {
-        event.currentTarget.classList.add("file-uploader--dragover");
+      if (!event.currentTarget.classList.contains("file-drop--dragover")) {
+        event.currentTarget.classList.add("file-drop--dragover");
       }
     },
 
@@ -66,7 +66,7 @@ export default {
      */
     dragleave(event) {
       // Clean up
-      event.currentTarget.classList.remove("file-uploader--dragover");
+      event.currentTarget.classList.remove("file-drop--dragover");
     },
 
     /**
@@ -78,14 +78,14 @@ export default {
       this.$refs.file.files = event.dataTransfer.files;
       this.handleChange(); // Trigger the handleChange event manually
       // Clean up
-      event.currentTarget.classList.remove("file-uploader--dragover");
+      event.currentTarget.classList.remove("file-drop--dragover");
     },
   },
 };
 </script>
 
 <style scoped>
-.file-uploader {
+.file-drop {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,14 +95,14 @@ export default {
   text-align: center;
 }
 
-.file-uploader__title {
+.file-drop__title {
   text-transform: uppercase;
   font-size: responsive 1.25rem 2rem;
   font-range: 375px 1280px;
   font-weight: var(--font-weight--medium);
 }
 
-.file-uploader__input {
+.file-drop__input {
   width: 1px;
   height: 1px;
   opacity: 0;
@@ -110,17 +110,17 @@ export default {
   position: absolute;
 }
 
-.file-uploader__button {
+.file-drop__button {
   cursor: pointer;
   color: var(--link-color);
 }
 
-.file-uploader__button:hover {
+.file-drop__button:hover {
   color: var(--link-color--onHover);
   text-decoration: underline;
 }
 
-.file-uploader--dragover {
+.file-drop--dragover {
   background-color: var(--color--green50);
 }
 </style>
