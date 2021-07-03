@@ -12,7 +12,7 @@
       id="file-input"
       @change="handleChange"
       ref="file"
-      accept=".pdf,.jpg,.jpeg,.png,.doc,.psd"
+      :accept="allowedFileExtensions"
     />
 
     <div class="file-uploader__title">
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { ALLOWED_FILES } from "@/constants";
 export default {
   name: "FileUploader",
 
@@ -44,9 +45,9 @@ export default {
     };
   },
 
-  watch: {
-    value() {
-      this.setPreview();
+  computed: {
+    allowedFileExtensions() {
+      return Object.keys(ALLOWED_FILES).map((item) => `.${item}`);
     },
   },
 
@@ -75,31 +76,6 @@ export default {
       event.currentTarget.classList.add("bg-gray-100");
       event.currentTarget.classList.remove("bg-green-300");
     },
-
-    // onFileChange(e) {
-    //   e.preventDefault();
-    //   const files = e.target.files || e.dataTransfer.files;
-    //   if (!files.length) {
-    //     return;
-    //   }
-    //
-    //   this.$emit("input", files[0]);
-    // },
-
-    // setPreview() {
-    //   if (!this.value) {
-    //     this.preview = null;
-    //   } else {
-    //     toBase64(this.value).then((res) => {
-    //       this.preview = res;
-    //     });
-    //   }
-    // },
-
-    // handleUpload(event) {
-    //   event.preventDefault();
-    //   console.log("upload file");
-    // },
   },
 };
 </script>
@@ -131,6 +107,7 @@ export default {
 }
 
 .file-uploader__button {
+  cursor: pointer;
   color: var(--link-color);
 }
 

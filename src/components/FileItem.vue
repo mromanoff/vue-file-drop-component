@@ -1,6 +1,7 @@
 <template>
   <li class="file-item">
-    <icon class="file-item__icon" size="xxLarge" name="file-doc" />
+    <file-icon class="file-item__icon" size="xxLarge" :name="fileIconName" />
+
     <div class="file-item__name">{{ fileName }}</div>
     <div class="file-item__status">
       <icon
@@ -28,19 +29,18 @@
 <script>
 import ProgressBar from "./ProgressBar";
 import Icon from "./Icon";
+import FileIcon from "./FileIcon";
+import { ALLOWED_FILES } from "@/constants";
+
 export default {
   name: "FileItem",
   components: {
     Icon,
+    FileIcon,
     ProgressBar,
   },
 
   props: {
-    completed: {
-      type: Boolean,
-      default: false,
-    },
-
     fileName: {
       type: String,
       required: true,
@@ -56,12 +56,24 @@ export default {
       default: 0,
     },
   },
+
+  computed: {
+    fileIconName() {
+      let extension = "";
+
+      for (const [key, value] of Object.entries(ALLOWED_FILES)) {
+        if (value === this.fileType) {
+          extension = key;
+        }
+      }
+      return extension;
+    },
+  },
 };
 </script>
 
 <style scoped>
 .file-item {
-  /*  height: calc(var(--space--medium) * 5);*/
   display: grid;
   grid-template-columns: max-content 1fr max-content;
   grid-template-rows: 1fr max-content;
@@ -80,18 +92,13 @@ export default {
 }
 
 .file-item__name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   font-size: responsive 0.85rem 1.75rem;
   font-range: 420px 1280px;
   font-weight: var(--font-weight--bold);
   grid-area: name;
-
-  /*  @media (--viewport--medium) {
-    font-size: var(--font-size--xLarge);
-  }
-
-  @media (--viewport--large) {
-    font-size: var(--font-size--xLarge);
-  }*/
 }
 
 .file-item__status {

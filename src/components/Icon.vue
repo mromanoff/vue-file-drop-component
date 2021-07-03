@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "icon",
+  name: "Icon",
   components: {
     /* eslint-disable vue/no-unused-components */
     check: () =>
@@ -23,41 +23,6 @@ export default {
     close: () =>
       import(
         /* webpackChunkName: "icons-close" */ "../assets/icons/icon-close.svg"
-      ),
-
-    "file-doc": () =>
-      import(
-        /* webpackChunkName: "icons-doc" */ "../assets/icons/icon-file-doc.svg"
-      ),
-
-    "file-psd": () =>
-      import(
-        /* webpackChunkName: "icons-psd" */ "../assets/icons/icon-file-psd.svg"
-      ),
-
-    "file-pdf": () =>
-      import(
-        /* webpackChunkName: "icons-pdf" */ "../assets/icons/icon-file-pdf.svg"
-      ),
-
-    "file-png": () =>
-      import(
-        /* webpackChunkName: "icons-png" */ "../assets/icons/icon-file-png.svg"
-      ),
-
-    "file-ai": () =>
-      import(
-        /* webpackChunkName: "icons-ai" */ "../assets/icons/icon-file-ai.svg"
-      ),
-
-    "file-jpg": () =>
-      import(
-        /* webpackChunkName: "icons-jpg" */ "../assets/icons/icon-file-jpg.svg"
-      ),
-
-    "file-xls": () =>
-      import(
-        /* webpackChunkName: "icons-xls" */ "../assets/icons/icon-file-xls.svg"
       ),
   },
 
