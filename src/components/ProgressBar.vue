@@ -7,8 +7,7 @@
   >
     <div class="progress-bar__track">
       <div
-        :class="computedClasses"
-        :style="{ width: computedWidth }"
+        :style="{ width: computedWidth, backgroundColor: computedColor }"
         class="progress-bar__bar"
       />
     </div>
@@ -18,16 +17,6 @@
 export default {
   name: "progress-bar",
   props: {
-    /**
-     *  One of these colors: red, green, yellow, orange
-     */
-    color: {
-      type: String,
-      default: "red",
-      validator: (value) => {
-        return value.match(/(green|red|yellow|orange)/);
-      },
-    },
     /**
      * One of these sizes: small, medium, large
      */
@@ -47,6 +36,23 @@ export default {
     },
   },
 
+  data() {
+    return {
+      max: 100,
+      red: {
+        h: 3,
+        s: 80,
+        l: 65,
+      },
+
+      green: {
+        h: 139,
+        s: 46,
+        l: 61,
+      },
+    };
+  },
+
   computed: {
     computedSize() {
       return {
@@ -54,14 +60,20 @@ export default {
       };
     },
 
-    computedClasses() {
-      return {
-        [`progress-bar__bar--${this.color}`]: this.color,
-      };
-    },
-
     computedWidth() {
       return `${this.normalizedValue}%`;
+    },
+
+    computedColor() {
+      const hStep = Math.abs(this.green.h - this.red.h) / this.max;
+      const sStep = Math.abs(this.green.s - this.red.s) / this.max;
+      const lStep = Math.abs(this.green.l - this.red.l) / this.max;
+
+      const h = Math.round(this.red.h + this.value * hStep);
+      const s = Math.round(this.red.s - this.value * sStep);
+      const l = Math.round(this.red.l - this.value * lStep);
+
+      return `hsl(${h}, ${s}%, ${l}%)`;
     },
 
     normalizedValue() {
@@ -91,8 +103,7 @@ export default {
 .progress-bar__bar {
   height: 100%;
   width: 0;
-  transition: width 2.5s ease;
-  transition-delay: 1s;
+  transition: width 200ms ease;
   border-radius: 4px;
 }
 

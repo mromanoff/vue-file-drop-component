@@ -1,27 +1,30 @@
 <template>
   <li class="file-item">
     <file-icon class="file-item__icon" size="xxLarge" :name="fileIconName" />
-
-    <div class="file-item__name">{{ fileName }}</div>
+    <div class="file-item__name">{{ name }}</div>
     <div class="file-item__status">
-      <icon
-        v-if="uploadStatus === 100"
-        size="medium"
-        name="check"
-        color="green"
-      />
-      <button
-        v-else
-        class="file-item__cancel"
-        @click="$emit('cancel', fileName)"
-      >
-        <icon size="medium" name="close" color="red" />
-      </button>
+      <transition name="fade-zoom" mode="out-in">
+        <icon
+          key="ready"
+          v-if="uploadCount === maxCount"
+          size="medium"
+          name="check"
+          color="green"
+        />
+        <button
+          v-else
+          key="pending"
+          class="file-item__cancel"
+          @click="$emit('cancel', name)"
+        >
+          <icon size="medium" name="close" color="red" />
+        </button>
+      </transition>
     </div>
     <progress-bar
       class="file-item__progress"
       size="xSmall"
-      :value="uploadStatus"
+      :value="uploadCount"
     />
   </li>
 </template>
@@ -41,20 +44,31 @@ export default {
   },
 
   props: {
-    fileName: {
+    name: {
       type: String,
       required: true,
     },
 
-    fileType: {
+    type: {
       type: String,
-      default: "UNKNOWN",
+      required: true,
     },
 
-    uploadStatus: {
+    size: {
       type: Number,
-      default: 0,
+      required: true,
     },
+  },
+
+  data() {
+    return {
+      maxCount: 100,
+      uploadCount: 0,
+    };
+  },
+
+  mounted() {
+    this.simulateUpload();
   },
 
   computed: {
@@ -62,11 +76,26 @@ export default {
       let extension = "";
 
       for (const [key, value] of Object.entries(ALLOWED_FILES)) {
-        if (value === this.fileType) {
+        if (value === this.type) {
           extension = key;
         }
       }
       return extension;
+    },
+  },
+
+  methods: {
+    /**
+     * Simulate Upload
+     */
+    simulateUpload() {
+      const delay = Math.ceil(this.size / 10000);
+
+      window.setTimeout(() => {
+        if (this.uploadCount === this.maxCount) return;
+        this.uploadCount += 1;
+        this.simulateUpload();
+      }, delay);
     },
   },
 };
@@ -108,5 +137,20 @@ export default {
 .file-item__progress {
   margin-top: var(--space--medium);
   grid-area: progress;
+}
+
+.file-item__cancel {
+  cursor: pointer;
+}
+
+.fade-zoom-enter-active,
+.fade-zoom-leave-active {
+  transition: opacity 0.5s;
+  transform: scale(1);
+}
+.fade-zoom-enter,
+.fade-zoom-leave-to {
+  transform: scale(1.5);
+  opacity: 0;
 }
 </style>

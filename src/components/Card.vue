@@ -1,7 +1,11 @@
 <template>
   <section class="card">
     <h1 class="card__header">Upload File</h1>
-    <file-list :files="files" class="card__file-list" />
+    <file-list
+      :files="files"
+      class="card__file-list"
+      @cancel="handleCancelUpload"
+    />
 
     <transition name="fade">
       <div v-if="error" class="card__error">
@@ -57,13 +61,28 @@ export default {
       } else if (!this.allowedMimeFiles.includes(file.type.toLowerCase())) {
         this.error = `This file type ${file.type} is not allowed to upload`;
       } else {
-        this.files.push({
-          fileName: file.name,
-          fileType: file.type,
-          filesize: file.size,
-          uploadStatus: 100,
-        });
+        const { name, type, size } = file;
+        this.files.push({ name, type, size });
+        // clean up
+        this.clearFileInput();
       }
+    },
+
+    /***
+     * Handle Cancel Upload
+     * @param fileName
+     */
+    handleCancelUpload(fileName) {
+      this.files = this.files.filter((file) => file.name !== fileName);
+      // clean up
+      this.clearFileInput();
+    },
+
+    /**
+     * Clear File Input field
+     */
+    clearFileInput() {
+      document.getElementById("file-input").value = null;
     },
   },
 };

@@ -1,14 +1,14 @@
 <template>
   <ul class="file-list">
     <transition-group name="list">
-      <template v-for="(item, index) of files">
+      <template v-for="({ name, type, size }, index) of files">
         <file-item
-          :file-name="item.fileName"
-          :file-type="item.fileType"
-          :upload-status="item.uploadStatus"
+          :name="name"
+          :type="type"
+          :size="size"
           class="file-list__item"
           :key="index"
-          @cancel="handleCancelUpload"
+          @cancel="$emit('cancel', name)"
         />
       </template>
     </transition-group>
@@ -30,17 +30,6 @@ export default {
 
   components: {
     FileItem,
-  },
-
-  methods: {
-    /***
-     * Handle Cancel Upload
-     * @param fileName
-     */
-    handleCancelUpload(fileName) {
-      console.log("cancel upload", fileName);
-      this.files = this.files.filter((file) => file.fileName !== fileName);
-    },
   },
 };
 </script>

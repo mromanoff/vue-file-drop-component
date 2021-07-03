@@ -8,7 +8,7 @@
     <input
       type="file"
       class="file-uploader__input"
-      name="filed"
+      name="file"
       id="file-input"
       @change="handleChange"
       ref="file"
@@ -52,23 +52,37 @@ export default {
   },
 
   methods: {
+    /**
+     * Handle Change
+     */
     handleChange() {
       this.$emit("upload", this.$refs.file.files[0]);
     },
 
+    /***
+     * Dragover
+     * @param event
+     */
     dragover(event) {
       event.preventDefault();
-      // Add some visual fluff to show the user can drop its files
       if (!event.currentTarget.classList.contains("file-uploader--dragover")) {
         event.currentTarget.classList.add("file-uploader--dragover");
       }
     },
 
+    /**
+     * Dragleave
+     * @param event
+     */
     dragleave(event) {
       // Clean up
       event.currentTarget.classList.remove("file-uploader--dragover");
     },
 
+    /**
+     * Drop
+     * @param event
+     */
     drop(event) {
       event.preventDefault();
       this.$refs.file.files = event.dataTransfer.files;
