@@ -51,14 +51,6 @@
     --button--secondary-backgroundcolor-hover: var(--color--grey600);
     --button--secondary-backgroundcolor-active: var(--color--grey700);
 
-    /* Tertiary button */
-    --button--tertiary-bordercolor: var(--color--green500);
-    --button--tertiary-borderwidth: 1px;
-    --button--tertiary-color: var(--color--white);
-    --button--tertiary-backgroundcolor: var(--color--green500);
-    --button--tertiary-backgroundcolor-hover: var(--color--green300);
-    --button--tertiary-backgroundcolor-active: var(--color--green700);
-
     /* Text button */
     --button--text-bordercolor: transparent;
     --button--text-borderwidth: 1px;

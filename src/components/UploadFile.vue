@@ -7,7 +7,7 @@
       @cancel="handleCancelUpload"
     />
 
-    <transition name="fade">
+    <transition name="slide">
       <div v-if="error" class="upload-file__error">
         <h4>{{ error }}</h4>
         <h5>Only these are permitted:</h5>
@@ -60,7 +60,7 @@ export default {
         if (!files) {
           this.error = "Not supported file";
         } else if (!this.allowedMimeFiles.includes(file.type.toLowerCase())) {
-          this.error = `This file type ${file.type} is not allowed to upload`;
+          this.error = `${file.name} type ${file.type} is not allowed to upload`;
         } else {
           const { name, type, size } = file;
           this.files.push({ name, type, size });
@@ -125,5 +125,44 @@ export default {
   position: absolute;
   right: var(--space--xSmall);
   top: var(--space--xSmall);
+}
+
+.slide-enter {
+  opacity: 0;
+}
+
+.slide-move {
+  transition: transform 1s;
+}
+
+.slide-enter-active {
+  animation: slide-in 0.4s ease-out forwards;
+  transition: opacity 0.4s;
+}
+
+.slide-leave-active {
+  position: absolute;
+  width: 100%;
+  animation: slide-out 0.3s ease-out forwards;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-40px) scaleY(0.9);
+  }
+  to {
+    transform: translateY(0px) scaleY(1);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
 }
 </style>
