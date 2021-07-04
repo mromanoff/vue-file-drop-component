@@ -1,5 +1,6 @@
-# file-drop-component
+# vue-file-drop-component
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fb6563e8-dd8a-424e-b522-d68d9ed7c4f2/deploy-status)](https://app.netlify.com/sites/vue-file-drop-component/deploys)
 
 ![](./src/assets/ui-challenge-february.jpg)
 
