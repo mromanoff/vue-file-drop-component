@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadFile.vue match snapshot 1`] = `
+<section class="upload-file">
+  <h1 class="upload-file__header">Upload File</h1>
+  <file-list-stub files="" class="upload-file__file-list"></file-list-stub>
+  <transition-stub name="fade">
+    <!---->
+  </transition-stub>
+  <file-uploader-stub class="upload-file__file-uploader"></file-uploader-stub>
+</section>
+`;
