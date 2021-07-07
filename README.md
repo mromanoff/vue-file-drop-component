@@ -4,6 +4,10 @@
 
 ![](./src/assets/ui-challenge-february.jpg)
 
+## DEMO
+https://vue-file-drop-component.netlify.app/
+
+
 ## Project setup
 ```
 yarn install

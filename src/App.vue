@@ -31,7 +31,7 @@ export default {
 
 @media (--viewport--medium-up) {
   .app {
-    width: var(--breakpoint--medium);
+    width: var(--breakpoint--large);
     margin-left: auto;
     margin-right: auto;
   }
